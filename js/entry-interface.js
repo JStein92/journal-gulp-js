@@ -12,8 +12,10 @@ $(function() {
     var newEntry = new Entry(title,body);
     var count = newEntry.wordCount(body);
     var vowelCount = newEntry.vowelCount(body);
+    var consonantCount = newEntry.consonantCount(body);
 
     $('#wordcount').text("Word count: " + count);
     $('#vowelcount').text("Vowels: " + vowelCount);
+    $('#consonantcount').text("Consonants: " + consonantCount);
   });
 });
