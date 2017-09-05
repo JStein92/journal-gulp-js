@@ -6,13 +6,32 @@ function Entry(title, body) {
 var consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z']
 
 //
-Entry.prototype.wordCount = function(body) {
-  var bodyArry = body.split(" ");
+Entry.prototype.wordCount = function(stringToCount) {
+  var bodyArry = stringToCount.split(" ");
   return bodyArry.length;
 };
 
-Entry.prototype.consonantCount = function(body) {
-  var bodyArry = body.split("");
+Entry.prototype.getTeaser = function(stringToCount) {
+  var wordsInString = stringToCount.split(" ");
+  var returnString = "";
+
+  for (var i = 0; i < wordsInString.length; i++) {
+
+    var word = wordsInString[i];
+    var lastLetter = word[word.length-1];
+    returnString += word + " ";
+    if (lastLetter === "." || lastLetter === "!" || lastLetter === "?" || i === 7)
+    {
+      return returnString;
+    }
+
+  }
+
+  return returnString;
+}
+
+Entry.prototype.consonantCount = function(stringToCount) {
+  var bodyArry = stringToCount.split("");
   var count = 0;
 
   for (var i = 0; i < bodyArry.length; i++) {
@@ -26,8 +45,8 @@ Entry.prototype.consonantCount = function(body) {
   return count;
 }
 
-Entry.prototype.vowelCount = function(body) {
-  var bodyArry = body.split("");
+Entry.prototype.vowelCount = function(stringToCount) {
+  var bodyArry = stringToCount.split("");
   var count = 0;
 
 

@@ -1,0 +1,9 @@
+.panel, .well{
+  display: none;
+}
+#title{
+  font-size: 2em;
+}
+#body{
+  font-size: 1.2em;
+}
